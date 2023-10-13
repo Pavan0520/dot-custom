@@ -5,6 +5,7 @@ phases:
     runtime-versions:
       dotnet: 6.0
     commands:
+      - sudo apt update -y
       - sudo apt install nuget -y
   build:
     commands:
