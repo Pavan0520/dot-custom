@@ -5,7 +5,7 @@ phases:
     runtime-versions:
       dotnet: 6.0
     commands:
-      - sudo apt-get install nuget -y
+      - sudo aptinstall nuget -y
   build:
     commands:
       - msbuild YourSolution.sln /p:Configuration=Release
