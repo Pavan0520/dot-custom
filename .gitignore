@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      dotnet: 4.0
+    commands:
+      - nuget restore YourSolution.sln
+  build:
+    commands:
+      - msbuild YourSolution.sln /p:Configuration=Release
+
+artifacts:
+  files:
+    - '**/bin/Release/**'
+
+cache:
+  paths:
+    - 'C:\Users\builder\.nuget\packages'
