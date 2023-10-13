@@ -5,8 +5,7 @@ phases:
     runtime-versions:
       dotnet: 6.0
     commands:
-      - sudo yum update -y
-      - sudo yum install nuget -y
+      - choco install nuget.commandline -y
   build:
     commands:
       - msbuild YourSolution.sln /p:Configuration=Release
