@@ -5,7 +5,8 @@ phases:
     runtime-versions:
       dotnet: 6.0
     commands:
-      - choco install nuget.commandline -y
+      - sudo apt update
+      - sudo apt install nuget -y
   build:
     commands:
       - msbuild YourSolution.sln /p:Configuration=Release
