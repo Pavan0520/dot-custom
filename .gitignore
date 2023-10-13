@@ -1,20 +1,16 @@
 version: 0.2
 
+env:
+  variables:
+    SOLUTION: .\FSharpHelloWorld.sln
+    PACKAGE_DIRECTORY: .\packages
+    DOTNET_FRAMEWORK: 4.8
+
 phases:
-  install:
-    runtime-versions:
-      dotnet: 5.0
-    commands:
-      - sudo apt update
-      - sudo apt install nuget -y
   build:
     commands:
-      - msbuild YourSolution.sln /p:Configuration=Release
-
+      - '& nuget restore $env:SOLUTION -PackagesDirectory $env:PACKAGE_DIRECTORY'
+      - '& msbuild -p:FrameworkPathOverride="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v$env:DOTNET_FRAMEWORK" $env:SOLUTION'
 artifacts:
   files:
-    - '**/bin/Release/**'
-
-cache:
-  paths:
-    - 'C:\Users\builder\.nuget\packages'
+    - .\FSharpHelloWorld\bin\Debug\*
